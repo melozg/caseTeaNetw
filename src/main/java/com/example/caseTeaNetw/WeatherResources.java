@@ -17,4 +17,9 @@ public class WeatherResources {
     public List<Weather> retrieveAllweather(){
         return service.findAll();
     }
+
+//    @GetMapping("/weather/{location}")
+//    public List<Weather> retrieveAllweather() {
+//        return service.findAll();
+//    }
 }
