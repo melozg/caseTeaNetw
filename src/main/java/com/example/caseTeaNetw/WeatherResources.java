@@ -25,17 +25,20 @@ public class WeatherResources {
         return service.findAll();
     }
 
-    @GetMapping("/weather/{date}")
+    @GetMapping("/weather/byDate/{date}")
     public Weather retrieveWeatherByDate(@PathVariable Integer date) {
         Weather weather = service.findByDate(date);
-        if (date == null)
-            throw new UserNotFoundException("Weather information for " + date + " is not found");
+        if (weather == null)
+            throw new LocationNotFoundException("Weather information for " + date + " is not found");
         return weather;
     }
 
-    @GetMapping("/weather/{location}")
-    public Weather retrieveWeatherByLocation(@PathVariable String location) {
+
+    @GetMapping("/weather/byLocation/{location}")
+    public Weather retrieveWeatherByCondition(@PathVariable String location) {
         Weather weather = service.findByLocation(location);
+        if (weather == null)
+            throw new LocationNotFoundException("Weather information for " + location + " is not found");
         return weather;
     }
 

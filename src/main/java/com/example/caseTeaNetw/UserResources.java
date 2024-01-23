@@ -30,6 +30,14 @@ public class UserResources {
             return user;
     }
 
+    @GetMapping("/user/byName/{name}")
+    public EndUsers retrieveUserByName(@PathVariable String name) {
+        EndUsers user =  service.findbyName(name);
+        if(user==null)
+            throw new UserNotFoundException("User with Name: " + name + " is not found");
+        return user;
+    }
+
     // change it so only admin can delete user
     // add error message
     @DeleteMapping("/user/{id}")
