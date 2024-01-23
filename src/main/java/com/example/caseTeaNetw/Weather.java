@@ -3,17 +3,19 @@ package com.example.caseTeaNetw;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Weather {
-    public Weather(String condition, String location, Integer temperature, DateTimeFormat.ISO timestamp) {
+    public Weather(String condition, String location, Integer temperature, Integer date) {
         this.condition = condition;
-        Location = location;
+        this.Location = location;
         this.temperature = temperature;
-        this.timestamp = timestamp;
+        this.date = date;
     }
 
     private String condition;
     private String Location;
     private Integer temperature ;
-    private DateTimeFormat.ISO timestamp;
+
+    //private DateTimeFormat.ISO timestamp;
+    private Integer date;
 
     public String getCondition() {
         return condition;
@@ -39,11 +41,20 @@ public class Weather {
         this.temperature = temperature;
     }
 
-    public DateTimeFormat.ISO getTimestamp() {
-        return timestamp;
+//    public DateTimeFormat.ISO getTimestamp() {
+//        return timestamp;
+//    }
+    // LocalDateTime.now()
+
+    public Integer getDate() {
+        return date;
     }
 
-    public void setTimestamp(DateTimeFormat.ISO timestamp) {
-        this.timestamp = timestamp;
+//    public void setTimestamp(DateTimeFormat.ISO timestamp) {
+//        this.timestamp = timestamp;
+//    }
+
+    public void setTimestamp(Integer date) {
+        this.date = date;
     }
 }

@@ -30,7 +30,15 @@ public class UserResources {
             return user;
     }
 
+    // change it so only admin can delete user
+    // add error message
+    @DeleteMapping("/user/{id}")
+    public void deleteUser(@PathVariable int id) {
+        service.deleteById(id);
+    }
+
     //User create endpoint
+    // change it so only admin can add user
     @PostMapping("/user")
     public ResponseEntity<EndUsers> createUser(@RequestBody EndUsers user) {
 
@@ -43,6 +51,17 @@ public class UserResources {
         return ResponseEntity.created(location).build();
 
     }
+
+    //  @PostMapping("/login")
+
+    //  @PutMapping("/user/username")
+
+    //  @PutMapping("/user/name")
+
+    //  @PutMapping("/user/password")
+
+
+
 
 
 }

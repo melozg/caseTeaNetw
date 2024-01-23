@@ -13,12 +13,10 @@ public class UsersDaoService {
 
 
     static {
-        users.add(new EndUsers(1, "melo", "melike", "1234", "admin"));
-        users.add(new EndUsers(2, "mertkal", "mert", "12345", "enduser"));
-        users.add(new EndUsers(3, "meleğim", "melek", "123456", "enduser"));
+        users.add(new EndUsers(1, "melozg", "melike", "1234", "admin"));
     }
 
-    private static int usersCount = 3;
+    private static int usersCount = 1;
 
     public List<EndUsers> findAll() {
         return users;
@@ -31,9 +29,13 @@ public class UsersDaoService {
         return user;
     }
 
-
     public EndUsers findOne(int id) {
         Predicate<? super EndUsers> predicate = user -> user.getId().equals(id);
         return users.stream().filter(predicate).findFirst().orElse(null);
+    }
+
+    public void deleteById(int id) {
+        Predicate<? super EndUsers> predicate = user -> user.getId().equals(id);
+        users.removeIf(predicate);
     }
 }
