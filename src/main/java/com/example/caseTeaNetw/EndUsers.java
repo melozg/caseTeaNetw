@@ -1,9 +1,23 @@
 package com.example.caseTeaNetw;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import org.hibernate.id.uuid.UuidGenerator;
 
+
+
+@Entity(name = "user_details")
 public class EndUsers {
+
+    protected EndUsers() {
+
+    }
+
     //private UuidGenerator uuid;
+    @Id
+    @GeneratedValue
     private Integer id;
     private String username;
     private String name;
@@ -21,6 +35,7 @@ public class EndUsers {
         this.password = password;
         this.role = role;
     }
+
 
     //Getters and Setters
 

@@ -11,11 +11,11 @@ import java.util.function.Predicate;
 public class WeatherDaoService {
     private static List<Weather> weathers = new ArrayList<>();
 
-    static{
-        weathers.add(new Weather( "sunny" , "gebze", 3, 6));
-        weathers.add(new Weather( "snowy" , "ist", 5, 7 ));
-        weathers.add(new Weather( "rainy" , "izmir", 8, 18));
-    }
+//    static{
+//        weathers.add(new Weather( "sunny" , "gebze", 3, 6));
+//        weathers.add(new Weather( "snowy" , "ist", 5, 7 ));
+//        weathers.add(new Weather( "rainy" , "izmir", 8, 18));
+//    }
 
     public List<Weather> findAll(){
         return weathers;

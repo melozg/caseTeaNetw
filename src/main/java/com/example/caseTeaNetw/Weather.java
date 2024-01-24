@@ -1,21 +1,31 @@
 package com.example.caseTeaNetw;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+import java.time.LocalDate;
+
+@Entity(name="weather_details")
 public class Weather {
-    public Weather(String condition, String location, Integer temperature, Integer date) {
+
+    protected Weather(){
+
+    }
+
+    @Id
+    private Long id;
+
+    public Weather(String condition, String location, Integer temperature, LocalDate date) {
         this.condition = condition;
-        this.Location = location;
+        this.location = location;
         this.temperature = temperature;
         this.date = date;
     }
 
     private String condition;
-    private String Location;
+    private String location;
     private Integer temperature ;
-
-    //private DateTimeFormat.ISO timestamp;
-    private Integer date;
+    private LocalDate date;
 
     public String getCondition() {
         return condition;
@@ -26,11 +36,11 @@ public class Weather {
     }
 
     public String getLocation() {
-        return Location;
+        return location;
     }
 
     public void setLocation(String location) {
-        Location = location;
+        location = location;
     }
 
     public Integer getTemperature() {
@@ -46,7 +56,7 @@ public class Weather {
 //    }
     // LocalDateTime.now()
 
-    public Integer getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
@@ -54,7 +64,15 @@ public class Weather {
 //        this.timestamp = timestamp;
 //    }
 
-    public void setTimestamp(Integer date) {
+    public void setTimestamp(LocalDate date) {
         this.date = date;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
